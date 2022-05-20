@@ -1,8 +1,8 @@
    local VLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))()
 
 game.StarterGui:SetCore("SendNotification", {
-    Title = "CometX - RTX Update Checker";
-    Text = "CometX - RTX is Up to date";
+    Title = "Loaded";
+    Text = "RightCtrl to toggle/untoggle UI";
     Icon = "http://www.roblox.com/asset/?id=9584344223";
     Duration = 5;
 })
