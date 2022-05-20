@@ -1,9 +1,9 @@
    local VLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))()
 
 game.StarterGui:SetCore("SendNotification", {
-    Title = "Loaded";
+    Title = "Loaded RTX";
     Text = "RightCtrl to toggle/untoggle UI";
-    Icon = "http://www.roblox.com/asset/?id=9584344223";
+    Icon = "http://www.roblox.com/asset/?id=9673790368";
     Duration = 5;
 })
 
