@@ -1,2 +1,2 @@
-# CometXRTX2
-RTX2
+-- READ ME!
+-- If you are a youtuber that want to showcase my script, please dont put any linkvertise links or mboost me links
