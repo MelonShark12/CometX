@@ -146,7 +146,7 @@ end)
 
 -- CometX Stuff 2
 local USection2 = UTab:NewSection("Hitboxes")
-Section:NewSlider("HitBox Size", "Size", 100, 16, function(s) -- 100 (MaxValue) | 16 (MinValue)
+USection2:NewSlider("HitBox Size", "Size", 100, 16, function(s) -- 100 (MaxValue) | 16 (MinValue)
         _G.HeadSize = s
 _G.Disabled = true
 
@@ -167,9 +167,9 @@ end
 end)
 end)
 
-local RSection1 = RTab:NewSection("BoostFps / FpsBoost / AntiLag")
-RSection1:NewLabel("Have fun playing with shitty graphics!!!")
-RSection1:NewButton("BoostFps - Cartoonish", "", function()
+local RSection = RTab:NewSection("BoostFps / FpsBoost / AntiLag")
+RSection:NewLabel("Have fun playing with shitty graphics!!!")
+RSection:NewButton("BoostFps - Cartoonish", "", function()
     for _,v in pairs(workspace:GetDescendants()) do
 if v.ClassName == "Part"
 or v.ClassName == "SpawnLocation"
@@ -180,7 +180,7 @@ v.Material = "Plastic"
 end
 end
 end)
-RSection1:NewButton("BoostFps - No Decals", "", function()
+RSection:NewButton("BoostFps - No Decals", "", function()
     for _,v in pairs(workspace:GetDescendants()) do
 if v.ClassName == "Part"
 or v.ClassName == "SpawnLocation"
@@ -198,7 +198,7 @@ v:Destroy()
 end
 end
 end)
-RSection1:NewButton("BoostFps - Remove All", "", function()
+RSection:NewButton("BoostFps - Remove All", "", function()
     for _,v in pairs(workspace:GetDescendants()) do
 if v.ClassName == "Part"
 or v.ClassName == "SpawnLocation"
@@ -217,4 +217,4 @@ v:Destroy()
 end
 end
 end)
-local ComingSoonWSection = WTab:NewSection("Coming Soon | In development")
+local WSection = WTab:NewSection("Coming Soon | In development")
