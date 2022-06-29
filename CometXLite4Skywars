@@ -1,0 +1,224 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jxereas/UI-Libraries/main/notification_gui_library.lua", true))()
+local Window = Library.CreateLib("[ Lite ] CometX - Skywars V1.1 BETA", "Ocean")
+
+local Tab1 = Window:NewTab("Combat")
+local Tab2 = Window:NewTab("Blatant")
+local Tab3 = Window:NewTab("Utility")
+local Tab4 = Window:NewTab("World")
+local Tab5 = Window:NewTab("Credits")
+-- Credits Tab --
+
+local CreditSection = Tab5:NewSection("LuaAxis - Scripting")
+CreditSection:NewLabel("xHeptc - UI Library")
+
+-- World Tab --
+
+local WorldSection = Tab4:NewSection("World Properties")
+
+WorldSection:NewToggle("Baseplate", "", function(state)
+   local baseplate    = Instance.new("Part")
+	baseplate.Parent   = workspace
+	baseplate.Name = "MomentoXD"
+	baseplate.Transparency = 0.5
+	baseplate.Size     = Vector3.new(800,1,800) -- change size
+	baseplate.Anchored = true
+	baseplate.Position = Workspace.Lobby["Middle Room"].Floor.Base.Union.Position + Vector3.new(0,-110,0)
+ 
+	if value == false then
+		game.Workspace["MomentoXD"]:Destroy()
+	end
+end)
+
+local TeleportsSection = Tab4:NewSection("Teleports | Get to places quicker")
+
+TeleportsSection:NewButton("Middle TP | Needs DisableAntiCheat", "Middle Teleport", function()
+    game:GetService('Players').LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2, 171, -9)
+end)
+
+TeleportsSection:NewButton("Mega VIP TP", "Mega VIP Teleport", function()
+    game:GetService('Players').LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1.06104672, 264, 72.2138901)
+end)
+
+TeleportsSection:NewButton("Lobby TP", "Lobby Teleport", function()
+    game:GetService('Players').LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2, 268, 1)
+end)
+
+-- Blatant --
+
+local BlatantSection = Tab2:NewSection("Fly / Airwalk")
+
+BlatantSection:NewButton("Airwalk", "", function()
+    Notification.new("info", "CometX", "Ctrl to go down, Space to go up.") -- Args(<string> Type, <string> Heading, <string> Body, <boolean?> AutoRemoveNotif, <number?> AutoRemoveTime, <function?> OnCloseFunction)
+    local crtl = false
+
+
+mouse = game.Players.LocalPlayer:GetMouse()
+
+
+local air = Instance.new("Part", workspace)
+air.Size = Vector3.new(7, 2, 3)
+air.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, -4, 0)
+air.Transparency = 1
+air.Anchored = true
+air.Name = "Airwalk"
+
+
+mouse.KeyDown:Connect(function(key)
+   if key == "2" then
+       air.Size = Vector3.new(4, -0.5, 3)
+   end
+end)
+
+mouse.KeyUp:Connect(function(key)
+   if key == "2" then
+       air.Size = Vector3.new(7, 2, 3)
+   end
+end)
+
+
+for i = 1, math.huge do
+   air.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0, -4, 0)
+   wait(0.01)
+end
+end)
+
+local BlatantSection = Tab2:NewSection("Speed")
+
+BlatantSection:NewTextBox("Speed", "", function(txt)
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = txt
+end)
+
+local JumpPowerSection = Tab2:NewSection("JumpPower")
+
+JumpPowerSection:NewTextBox("JumpPower", "", function(txt)
+	game.Players.LocalPlayer.Character.Humanoid.JumpPower = txt
+end)
+
+-- Combat Tab --
+
+local CombatSection = Tab1:NewSection("AutoClicker")
+
+CombatSection:NewButton("Autoclicker", "WTF", function()
+    --Subscribe To ArceusMODZ--
+-- If Any Error Happened Let me Know--
+
+--// Setting \--
+local range = 1000
+
+--// Variable \--
+local player = game:GetService("Players").LocalPlayer
+
+--// Script \--
+game:GetService("RunService").RenderStepped:Connect(function()
+    local p = game.Players:GetPlayers()
+    for i = 2, #p do local v = p[i].Character
+        if v and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 and v:FindFirstChild("HumanoidRootPart") and player:DistanceFromCharacter(v.HumanoidRootPart.Position) <= range then
+            local tool = player.Character and player.Character:FindFirstChildOfClass("Tool")
+            if tool and tool:FindFirstChild("Handle") then
+                tool:Activate()
+                for i,v in next, v:GetChildren() do
+                    if v:IsA("BasePart") then
+                        firetouchinterest(tool.Handle,v,0)
+                        firetouchinterest(tool.Handle,v,1)
+                    end
+                end
+            end
+        end
+    end
+end)
+end)
+
+local HitSection = Tab1:NewSection("Hitboxes")
+
+HitSection:NewSlider("Hitbox", "", 100, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+_G.HeadSize = s
+_G.Disabled = true
+
+game:GetService('RunService').RenderStepped:connect(function()
+if _G.Disabled then
+for i,v in next, game:GetService('Players'):GetPlayers() do
+if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+pcall(function()
+v.Character.HumanoidRootPart.Size = Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)
+v.Character.HumanoidRootPart.Transparency = 0.7
+v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Really red")
+v.Character.HumanoidRootPart.Material = "Neon"
+v.Character.HumanoidRootPart.CanCollide = false
+end)
+end
+end
+end
+end)
+end)
+
+-- Utility --
+
+local BoxMineSection = Tab3:NewSection("BoxMine")
+
+BoxMineSection:NewButton("BoxMine", "WTF", function()
+    print("Clicked")
+ 
+	function onTouched(part)       
+		local h = part
+		if h.Name == "Block" then
+			game:GetService("Players").LocalPlayer.Backpack.Axe.RemoteEvent:FireServer(h)  
+		end
+	end
+	Partz              = Instance.new("Part")
+	Partz.Parent       = workspace
+	Partz.Transparency = 1
+	Partz.CanCollide   = false
+	Partz.Massless     = true
+	Partz.Position     = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,9,0)
+	Partz.Size         = Vector3.new(15,20,15)
+ 
+	local light         = Instance.new("SelectionBox")
+	light.Adornee       = Partz
+	light.LineThickness = 0.05
+	light.Color3        = Color3.fromRGB(0, 255, 0)
+	light.Parent        = Partz
+	light.Name          = "SelectBox"
+ 
+	local bruh = Partz.Touched:connect(onTouched)
+ 
+	wait()
+	bruh:Disconnect()
+	Partz:Destroy()
+end)
+
+local DisablerSection = Tab3:NewSection("Disabler")
+
+DisablerSection:NewButton("DisableAntiCheat", "Disable the trash anticheat", function()
+    	print("Clicked")
+	if game:GetService("Players").LocalPlayer.PlayerGui.Extra:FindFirstChild("Local") then
+		local plr       = game:GetService("Players").LocalPlayer
+		local workspace = game:GetService("Workspace")
+ 
+		plr.PlayerGui:WaitForChild("Extra"):WaitForChild("Local").Parent = game:GetService("Workspace")
+		plr.PlayerGui:WaitForChild("Extra"):WaitForChild("Local").Parent = game:GetService("Workspace")
+		plr.PlayerGui:WaitForChild("Extra"):WaitForChild("MobileFix").Parent = game:GetService("Workspace")
+		plr.PlayerGui:WaitForChild("Extra"):WaitForChild("XboxFix").Parent = game:GetService("Workspace")
+		wait()
+		workspace:FindFirstChild("Local"):Destroy()
+		workspace:FindFirstChild("Local"):Destroy()
+		workspace:FindFirstChild("MobileFix"):Destroy()
+		workspace:FindFirstChild("XboxFix"):Destroy()
+		game.workspace.Borders.InvisibleBorder:remove()
+		game.workspace.Lobby.KillPlates:remove()
+		venyx:Notify("Bypassed", "Bypassed: true")
+ 
+		plr.CharacterAdded:Connect(function()
+			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("Local").Parent = game:GetService("Workspace")
+			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("Local").Parent = game:GetService("Workspace")
+			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("MobileFix").Parent = game:GetService("Workspace")
+			plr.PlayerGui:WaitForChild("Extra"):WaitForChild("XboxFix").Parent = game:GetService("Workspace")
+			wait()
+			workspace:FindFirstChild("Local"):Destroy()
+			workspace:FindFirstChild("Local"):Destroy()
+			workspace:FindFirstChild("MobileFix"):Destroy()
+			workspace:FindFirstChild("XboxFix"):Destroy()
+		end)
+	else
+	end
+end)
