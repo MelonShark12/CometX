@@ -7,6 +7,7 @@ local Tab2 = Window:NewTab("Blatant")
 local Tab3 = Window:NewTab("Utility")
 local Tab4 = Window:NewTab("World")
 local Tab5 = Window:NewTab("Credits")
+local UI = Window:NewTab("Customize")
 -- Credits Tab --
 
 local CreditSection = Tab5:NewSection("LuaAxis - Scripting")
@@ -222,3 +223,10 @@ DisablerSection:NewButton("DisableAntiCheat", "Disable the trash anticheat", fun
 	else
 	end
 end)
+
+local UI = UI:NewSection("Colors")
+for theme, color in pairs(colors) do
+	UI:NewColorPicker(theme, "Change your "..theme, color, function(color3)
+		kavoUi:ChangeColor(theme, color3)
+	end)
+end
