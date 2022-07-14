@@ -1,6 +1,6 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/NTDCore/NightBedCommunityOfficial/main/Theme/Night/bed/lol/XD/Chill/long/kavo.lua"))()
 local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jxereas/UI-Libraries/main/notification_gui_library.lua", true))()
-local Window = Library.CreateLib("[ Lite ] CometX - Skywars V1.1 BETA", "Ocean")
+local Window = Library.CreateLib("[ Lite ] CometX - Skywars V1.1 BETA", "Private")
 
 local Tab1 = Window:NewTab("Combat")
 local Tab2 = Window:NewTab("Blatant")
