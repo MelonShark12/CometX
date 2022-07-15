@@ -30,7 +30,7 @@ CocoLogo.BorderSizePixel = 0
 CocoLogo.ClipsDescendants = true
 CocoLogo.Position = UDim2.new(0.255176783, 0, 0.49999997, 0)
 CocoLogo.Size = UDim2.new(0, 86, 0, 86)
-CocoLogo.Image = "http://www.roblox.com/asset/?id=6290482056"
+CocoLogo.Image = ""
 
 T1.Name = "T1"
 T1.Parent = MainFrame
@@ -57,7 +57,7 @@ T2.BorderSizePixel = 0
 T2.Position = UDim2.new(0.646776021, 0, 0.538823366, 0)
 T2.Size = UDim2.new(0, 144, 0, 28)
 T2.Font = Enum.Font.GothamBold
-T2.Text = "Coco Hub!"
+T2.Text = "CometX LITE"
 T2.TextColor3 = Color3.fromRGB(255, 255, 255)
 T2.TextScaled = true
 T2.TextSize = 14.000
